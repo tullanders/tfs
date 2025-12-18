@@ -1,0 +1,57 @@
+ul {
+    list-style-type: none;
+    padding-left: 15px;
+}
+li {
+    cursor: pointer;
+}
+.hidden {
+    display: none
+}
+
+
+li.hasChild:before {
+    content: '▾ ';
+}
+
+li.hasHidden:before {
+    content: '▸ ';
+}
+li:not(.hasChild) {
+    margin-left: 12px;
+}
+li.selected > a {
+    background-color: #cce5ff;
+}
+a {
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+}
+a:hover {
+    background-color: #e6f2ff;
+}
+a.department::before {
+    content: '🏢 ';
+}
+a.project::before {
+    content: '📂 ';
+}
+a.folder::before {
+    content: '📁 ';
+}
+a.file::before {
+    content: '📄 ';
+} 
+a.employee::before {
+    content: '👤 ';
+}
+a.manager::before {
+    content: '👔 ';
+}
+a.task::before {
+    content: '✅ ';
+}
+a.private-root::before {
+    content: '🔒 ';
+}

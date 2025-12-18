@@ -18,16 +18,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <script src="/js/treeview.js"></script>
+        <script src="/js/breadcrumb.js"></script>
+        <link rel="stylesheet" href="/js/treeview.css" />
+        <link rel="stylesheet" href="/js/breadcrumb.css" />
+      </head>
       <body>
         <Header />
-        <div className="tds-container">
-          <div className="tds-row tds-margin-bottom-4">
-            <div className="tds-col-max-12">
-              <Breadcrumbs items={[{ label: 'Home', href: '/', current: false }, { label: 'Page', href: '/page', current: true }]} />
-            </div>
-          </div>
-          
-        </div>
+
         {children}
         <Footer />
       </body>

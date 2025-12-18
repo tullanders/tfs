@@ -28,9 +28,10 @@ classDiagram
         %% foreign id ("enum") to lookup table legalType
         int legalTypeId
         int legalSetupId
-        legalOwnerShip[] owns
+        OwnerShip[] owns
+        OwnerShip[] 
     }
-    class Owns {
+    class Ownership {
         int id
         int legalId
         int ownedLegalId

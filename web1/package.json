@@ -6,22 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:seed": "tsx src/db/seed.ts"
   },
   "dependencies": {
     "@scania/tegel-react": "^1.43.0",
     "@types/react-router-dom": "^5.3.3",
-    "next": "16.0.6",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
+    "next": "16.0.10",
+    "pg": "^8.16.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.16.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.8",
     "eslint": "^9",
     "eslint-config-next": "16.0.6",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 import { TdsBreadcrumbs, TdsBreadcrumb } from "@scania/tegel-react";
-import { Breadcrumb } from "@/types";
+import { Breadcrumb } from "@/lib/types";
 
 interface BreadcrumbsProps {
   items: Breadcrumb[];

@@ -12,6 +12,7 @@ import {
   TdsHeaderDropdownListUser,
   TdsHeaderBrandSymbol,
   TdsIcon,
+  TdsHeaderItem
 } from '@scania/tegel-react';
 
 
@@ -35,23 +36,36 @@ const Header = ({ className, toggleMobileNav, pathname = '/' }: HeaderProps) => 
           ></TdsHeaderHamburger>
         )}
 
-        <TdsHeaderTitle>React Demo</TdsHeaderTitle>
-
+        <TdsHeaderTitle>
+          
+            TRATON Financial Services
+          
+        </TdsHeaderTitle>
+        <TdsHeaderItem>
+          <a href="/">Home</a>
+        </TdsHeaderItem>
+        <TdsHeaderItem>
+          <a href="/entities">Entities</a>
+        </TdsHeaderItem>        
+        
         <TdsHeaderDropdown>
-          <span slot="label">Edit Structures</span>
-          <TdsHeaderDropdownList>
-            <TdsHeaderDropdownListItem selected={pathname === '/legal'}>
-              <Link href="/legal">Operational Legal Structure</Link>
+          <span slot="label">Edit Metadata</span>
+          <TdsHeaderDropdownList size="lg">
+            <TdsHeaderDropdownListItem selected={pathname === '/metadata/countries'}>
+              <Link href="/metadata/countries">Countries</Link>
             </TdsHeaderDropdownListItem>
-            <TdsHeaderDropdownListItem selected={pathname === '/operations'}>
-              <Link href="/operations">Financial Operational Reporting Structure</Link>
-            </TdsHeaderDropdownListItem>        
-            <TdsHeaderDropdownListItem selected={pathname === '/business'}>
-              <Link href="/business">Operational Business Structure</Link>
-            </TdsHeaderDropdownListItem>           
-            <TdsHeaderDropdownListItem selected={pathname === '/finance'}>
-              <Link href="/finance">Financial Legal Reporting Structure</Link>
-            </TdsHeaderDropdownListItem>           
+            <TdsHeaderDropdownListItem selected={pathname === '/metadata/entitytype'}>
+              <Link href="/metadata/entitytype">Entity Types</Link>
+            </TdsHeaderDropdownListItem>  
+            <TdsHeaderDropdownListItem selected={pathname === '/metadata/legaltype'}>
+              <Link href="/metadata/legaltype">Legal Types</Link>
+            </TdsHeaderDropdownListItem>  
+            <TdsHeaderDropdownListItem selected={pathname === '/metadata/legalsetup'}>
+              <Link href="/metadata/legalsetup">Legal Setup</Link>
+            </TdsHeaderDropdownListItem>  
+            <TdsHeaderDropdownListItem selected={pathname === '/metadata/boardtype'}>
+              <Link href="/metadata/boardtype">Board Types</Link>
+            </TdsHeaderDropdownListItem>                                            
           </TdsHeaderDropdownList>
         </TdsHeaderDropdown>
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Treeview Demo</title>
+    
+    <link rel="stylesheet" href="treeview.css">
+    <link rel="stylesheet" href="breadcrumb.css">
+    <script src="treeview.js"></script>
+    <script src="breadcrumb.js"></script>
+</head>
+<body>
+    <ul id="treeview">
+    <div id="breadcrumb-container"></div>
+
+    </ul>
+    <script>
+        const container = document.getElementById('breadcrumb-container');
+        function updateBreadcrumb(path) {
+            container.innerHTML = '';
+            const breadcrumb = createBreadcrumb(path);
+            container.appendChild(breadcrumb);
+            
+            breadcrumb.addEventListener('breadcrumbClick', function(event) {
+                // Expandera och välj noden i trädet
+                tree.expandAndSelectByPath(event.detail.path);
+                
+                // Uppdatera breadcrumb rekursivt
+                updateBreadcrumb(event.detail.path);
+            });
+        }        
+        const tree = new Tree({
+            treeview: document.getElementById('treeview')
+        });
+
+        fetch('./demo.json')
+            .then(response => response.json())
+            .then(nodes => {
+                console.log(nodes);
+                tree.load(nodes, 0);
+            });
+
+        
+
+        //triggers for each row in the treeview
+        treeview.addEventListener('nodeAdded', function (e) {
+            console.log(e.detail);
+
+            if (e.detail.node.class) {
+                e.detail.element.addEventListener('hover', function () {
+                    console.log('hovered over node:', e.detail.node.title);
+                });
+            }
+        }, false);
+
+
+        
+        treeview.addEventListener('nodeClick', function (e) {
+            const path = e.detail.path;
+            updateBreadcrumb(path);           
+        }, false);
+
+
+    </script>
+</body>
+</html>
